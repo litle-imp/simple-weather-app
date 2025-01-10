@@ -1,6 +1,8 @@
-const apiKey = "8ff46ddd3733a4ed1ab3616b52157148"; // Replace with your OpenWeatherMap API key
+//heres the api key from openweather and search button
+const apiKey = "8ff46ddd3733a4ed1ab3616b52157148";
 const searchButton = document.getElementById("searchButton");
 
+//search button lessner
 searchButton.addEventListener("click", () => {
     const city = document.getElementById("city").value.trim();
     if (city) {
@@ -10,6 +12,8 @@ searchButton.addEventListener("click", () => {
     }
 });
 
+
+//async await function for weather fetching
 async function getWeather(city) {
     try {
         const response = await fetch(
@@ -25,6 +29,8 @@ async function getWeather(city) {
     }
 }
 
+
+//displaying data got from the api
 function displayWeather(data) {
     const weatherResult = document.getElementById("weatherResult");
     weatherResult.innerHTML = `
@@ -36,6 +42,7 @@ function displayWeather(data) {
     `;
 }
 
+//handling error if any occur 
 function displayError(message) {
     const weatherResult = document.getElementById("weatherResult");
     weatherResult.innerHTML = `<p style="color: #f44336; font-weight: bold;">${message}</p>`;
